@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ai2img.js</title>
+    <meta http-equiv="Content-Script-Type" content="text/javascript;">
+    <meta http-equiv="Content-Style-Type" content="text/css;">
+</head>
+    <style>
+        *{
+            margin-bottom: 15px;
+        }
+        img{
+            height: 128px;
+        }
+        span{
+            font-size: 70%;
+            font-weight: 300;
+        }
+    </style>
+<script src="psd2img.min.js"></script>
+<body>
+    <h1>"psd2img.js" that analyzes psd files and displays a preview image</h1>
+    <div>
+        <h2>id specification. File path to src.</h2>
+        <img src="examples/photoshop-CMYK.psd" id="psdImg" alt="id specification. File path to src.">
+    </div>
+    <div>
+        <h2>class specification. File path to name.<br><span>*Second image has a tone curve adjustment layer</span><br><span>*3rd and 4th images are jpg saved.</span></h2>
+        <img name="examples/photoshop-RGB.psd" class="psdImgs" alt="class specification. File path to name.">
+        <img name="examples/photoshop-RGB-Tone_curve.psd" class="psdImgs" alt="class specification. File path to name.">
+        <img src="examples/photoshop-RGB.jpg" style="margin-left:30px;">
+        <img src="examples/photoshop-RGB-Tone_curve.jpg">
+    </div>
+    <div>
+        <h2>Click to display the psd file in all img tags.</h2>
+        <input type="button" value="click!" id="srcButton">
+        <br>
+        <img alt="no attr.">
+    </div>
+</body>
+<script>
+    psd2img({
+        target:"#psdImg",
+        attr:"src"
+    });
+    psd2img({
+        target:".psdImgs",
+        attr:"name"
+    });
+    document.getElementById("srcButton").onclick=function(){ 
+        psd2img({
+            target:"img",
+            src:"examples/photoshop-grayscale.psd"
+        });
+    };
+</script>
+</html>
