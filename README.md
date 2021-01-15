@@ -6,6 +6,8 @@ https://adodtp.com/
 
 ===
 
+[sample page](https://adodtp.com/sampleCode/psd2img/)
+
 "psd2img.js" that analyzes psd files and displays preview images in HTML.
 
 URL scheme must be "http" or "https".
